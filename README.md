@@ -1,4 +1,5 @@
 # StudyFlow
+![StudyFlow Dashboard](./screenshots/hero.png)
 
 StudyFlow es una aplicación web diseñada para ayudar a estudiantes a organizar su vida académica en un solo lugar.
 
