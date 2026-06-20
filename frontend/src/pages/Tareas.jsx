@@ -20,19 +20,19 @@ function Sparkle({ size = 16, color = '#C9B8FF', style = {} }) {
 function AlertIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L22 20H2L12 2Z" fill="#FF8FAB" opacity="0.3"/>
-      <path d="M12 2L22 20H2L12 2Z" stroke="#FF8FAB" strokeWidth="2" strokeLinejoin="round"/>
-      <rect x="11" y="9" width="2" height="6" rx="1" fill="#FF8FAB"/>
-      <circle cx="12" cy="17" r="1" fill="#FF8FAB"/>
+      <path d="M12 2L22 20H2L12 2Z" fill="var(--pink-ink)" opacity="0.18"/>
+      <path d="M12 2L22 20H2L12 2Z" stroke="var(--pink-ink)" strokeWidth="2" strokeLinejoin="round"/>
+      <rect x="11" y="9" width="2" height="6" rx="1" fill="var(--pink-ink)"/>
+      <circle cx="12" cy="17" r="1" fill="var(--pink-ink)"/>
     </svg>
   )
 }
 
 function DifficultyBadge({ dificultad }) {
   const map = {
-    FACIL: { label: 'Fácil', bg: '#DFFAF5', color: '#5bbfb0', border: '#B8F0E6' },
-    MEDIA: { label: 'Media', bg: '#E4DCFF', color: '#A090E0', border: '#C9B8FF' },
-    DIFICIL: { label: 'Difícil', bg: '#FFE8F1', color: '#FF85A6', border: '#FFB5C8' }
+    FACIL: { label: 'Fácil', bg: '#DFFAF5', color: 'var(--mint-ink)', border: '#B8F0E6' },
+    MEDIA: { label: 'Media', bg: '#E4DCFF', color: 'var(--lila-ink)', border: '#C9B8FF' },
+    DIFICIL: { label: 'Difícil', bg: '#FFE8F1', color: 'var(--pink-ink)', border: '#FFB5C8' }
   }
   const s = map[dificultad] || map.MEDIA
   return (
@@ -113,7 +113,7 @@ function FilterPill({ active, onClick, children }) {
       padding: '6px 14px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 700,
       fontFamily: "'Nunito', sans-serif", cursor: 'pointer', transition: 'all 0.15s',
       background: active ? 'var(--pink)' : 'white',
-      color: active ? 'white' : 'var(--text-light)',
+      color: active ? 'var(--text-strong)' : 'var(--text-light)',
       border: active ? '2px solid var(--pink-dark)' : '2px solid var(--cream-dark)',
       boxShadow: active ? '0 2px 0px var(--pink-dark)' : 'none'
     }}>{children}</button>
@@ -232,9 +232,9 @@ export default function Tareas() {
 
   const diasRestantes = (fecha) => {
     const diff = Math.ceil((new Date(fecha) - new Date()) / (1000 * 60 * 60 * 24))
-    if (diff < 0) return { texto: 'Vencida', color: '#FF8FAB' }
-    if (diff === 0) return { texto: 'Hoy', color: '#FF8FAB' }
-    if (diff === 1) return { texto: 'Mañana', color: '#FFB366' }
+    if (diff < 0) return { texto: 'Vencida', color: 'var(--pink-ink)' }
+    if (diff === 0) return { texto: 'Hoy', color: 'var(--pink-ink)' }
+    if (diff === 1) return { texto: 'Mañana', color: '#A9601B' }
     return { texto: `${diff} días`, color: 'var(--text-light)' }
   }
 
@@ -249,7 +249,7 @@ export default function Tareas() {
 
   if (loadError) return (
     <div style={{
-      background: 'white', borderRadius: '20px', padding: '24px',
+      background: 'var(--pink-surface)', borderRadius: '20px', padding: '24px',
       border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
       color: 'var(--pink-dark)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
     }}>
@@ -261,7 +261,7 @@ export default function Tareas() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Header */}
       <div style={{
-        background: 'white', borderRadius: '20px', padding: '24px 28px',
+        background: 'var(--pink-surface)', borderRadius: '20px', padding: '24px 28px',
         border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         position: 'relative', overflow: 'hidden'
@@ -274,7 +274,7 @@ export default function Tareas() {
             <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.82rem', color: 'var(--pink-dark)', fontWeight: 700 }}>
               {pendientes} pendientes
             </span>
-            <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.82rem', color: '#5bbfb0', fontWeight: 700 }}>
+            <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.82rem', color: 'var(--mint-ink)', fontWeight: 700 }}>
               {completadas} completadas
             </span>
           </div>
@@ -282,7 +282,7 @@ export default function Tareas() {
         <button onClick={openCreate} style={{
           background: 'var(--pink)', border: '2px solid var(--pink-dark)', borderRadius: '14px',
           padding: '10px 20px', cursor: 'pointer', fontFamily: "'Fredoka One', cursive",
-          fontSize: '1rem', color: 'white', boxShadow: '0 3px 0px var(--pink-dark)'
+          fontSize: '1rem', color: 'var(--text-strong)', boxShadow: '0 3px 0px var(--pink-dark)'
         }}>+ Nueva tarea</button>
       </div>
 
@@ -301,7 +301,7 @@ export default function Tareas() {
       {/* Lista */}
       {tareasFiltradas.length === 0 ? (
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '48px',
+          background: 'var(--pink-surface)', borderRadius: '20px', padding: '48px',
           border: '2px solid var(--cream-dark)', textAlign: 'center'
         }}>
           <Star size={36} color="var(--pink-light)" style={{ margin: '0 auto 12px' }}/>
@@ -318,7 +318,7 @@ export default function Tareas() {
             const diasInfo = diasRestantes(tarea.fechaLimite)
             return (
               <div key={tarea.id} style={{
-                background: 'white', borderRadius: '16px', padding: '16px 18px',
+                background: tarea.alerta ? '#FFE8F1' : 'var(--pink-surface)', borderRadius: '16px', padding: '16px 18px',
                 border: `2px solid ${tarea.completada ? 'var(--cream-dark)' : tarea.alerta ? 'var(--pink-light)' : 'var(--cream-dark)'}`,
                 boxShadow: tarea.completada ? 'none' : '3px 3px 0px var(--cream-dark)',
                 display: 'flex', alignItems: 'center', gap: '14px',
@@ -329,7 +329,7 @@ export default function Tareas() {
                 <button onClick={e => !tarea.completada && completar(tarea.id, e)} style={{
                   width: 28, height: 28, borderRadius: '50%', flexShrink: 0, cursor: tarea.completada ? 'default' : 'pointer',
                   background: tarea.completada ? 'var(--mint-dark)' : 'white',
-                  border: `2.5px solid ${tarea.completada ? '#5bbfb0' : 'var(--cream-dark)'}`,
+                  border: `2.5px solid ${tarea.completada ? 'var(--mint-ink)' : 'var(--cream-dark)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.2s'
                 }}>
@@ -367,7 +367,7 @@ export default function Tareas() {
                 {tarea.alerta && !tarea.completada && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
                     <AlertIcon/>
-                    <span style={{ fontSize: '0.7rem', color: '#FF8FAB', fontWeight: 700, fontFamily: "'Nunito', sans-serif" }}>Urgente</span>
+                    <span style={{ fontSize: '0.7rem', color: 'var(--pink-ink)', fontWeight: 700, fontFamily: "'Nunito', sans-serif" }}>Urgente</span>
                   </div>
                 )}
 
@@ -415,7 +415,7 @@ export default function Tareas() {
           <button onClick={guardar} disabled={saving} style={{
             width: '100%', padding: '12px', background: 'var(--pink)',
             border: '2px solid var(--pink-dark)', borderRadius: '14px',
-            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'white',
+            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'var(--text-strong)',
             cursor: 'pointer', boxShadow: '0 3px 0px var(--pink-dark)', opacity: saving ? 0.7 : 1
           }}>{saving ? 'Guardando...' : editando ? 'Guardar cambios' : 'Crear tarea'}</button>
         </Modal>

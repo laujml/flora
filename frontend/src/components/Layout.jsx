@@ -24,7 +24,7 @@ function Star({ size = 20, color = '#FFB5C8', style = {} }) {
 function HomeIcon({ active }) {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z" fill={active ? 'white' : 'var(--text-light)'} />
+      <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} />
     </svg>
   )
 }
@@ -32,11 +32,11 @@ function HomeIcon({ active }) {
 function CursosIcon({ active }) {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="3" width="18" height="20" rx="3" fill={active ? 'white' : 'var(--text-light)'} opacity="0.3"/>
-      <rect x="3" y="3" width="4" height="20" rx="2" fill={active ? 'white' : 'var(--text-light)'} opacity="0.6"/>
-      <rect x="9" y="8" width="9" height="2" rx="1" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="9" y="13" width="9" height="2" rx="1" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="9" y="18" width="6" height="2" rx="1" fill={active ? 'white' : 'var(--text-light)'}/>
+      <rect x="3" y="3" width="18" height="20" rx="3" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} opacity="0.3"/>
+      <rect x="3" y="3" width="4" height="20" rx="2" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} opacity="0.6"/>
+      <rect x="9" y="8" width="9" height="2" rx="1" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="9" y="13" width="9" height="2" rx="1" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="9" y="18" width="6" height="2" rx="1" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
     </svg>
   )
 }
@@ -44,8 +44,8 @@ function CursosIcon({ active }) {
 function TareasIcon({ active }) {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="3" width="18" height="18" rx="4" fill={active ? 'white' : 'var(--text-light)'} opacity="0.3"/>
-      <path d="M7 12L10 15L17 8" stroke={active ? 'white' : 'var(--text-light)'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect x="3" y="3" width="18" height="18" rx="4" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} opacity="0.3"/>
+      <path d="M7 12L10 15L17 8" stroke={active ? 'var(--text-strong)' : 'var(--text-light)'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -53,13 +53,13 @@ function TareasIcon({ active }) {
 function CalendarioIcon({ active }) {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="4" width="18" height="18" rx="3" fill={active ? 'white' : 'var(--text-light)'} opacity="0.3"/>
-      <rect x="3" y="4" width="18" height="6" rx="3" fill={active ? 'white' : 'var(--text-light)'} opacity="0.8"/>
-      <rect x="7" y="2" width="2" height="4" rx="1" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="15" y="2" width="2" height="4" rx="1" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="7" y="14" width="2" height="2" rx="0.5" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="11" y="14" width="2" height="2" rx="0.5" fill={active ? 'white' : 'var(--text-light)'}/>
-      <rect x="15" y="14" width="2" height="2" rx="0.5" fill={active ? 'white' : 'var(--text-light)'}/>
+      <rect x="3" y="4" width="18" height="18" rx="3" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} opacity="0.3"/>
+      <rect x="3" y="4" width="18" height="6" rx="3" fill={active ? 'var(--text-strong)' : 'var(--text-light)'} opacity="0.8"/>
+      <rect x="7" y="2" width="2" height="4" rx="1" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="15" y="2" width="2" height="4" rx="1" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="7" y="14" width="2" height="2" rx="0.5" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="11" y="14" width="2" height="2" rx="0.5" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
+      <rect x="15" y="14" width="2" height="2" rx="0.5" fill={active ? 'var(--text-strong)' : 'var(--text-light)'}/>
     </svg>
   )
 }
@@ -74,7 +74,7 @@ function LogoutIcon() {
   )
 }
 
-function Flower({ size = 24, color = '#B8F0E6', style = {} }) {
+function Flower({ size = 24, color = 'var(--mint-soft)', style = {} }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none" style={style}>
       <ellipse cx="20" cy="8" rx="5" ry="8" fill={color}/>
@@ -88,10 +88,10 @@ function Flower({ size = 24, color = '#B8F0E6', style = {} }) {
 }
 
 const navItems = [
-  { to: '/', label: 'Home', icon: HomeIcon, color: 'var(--pink)', shadow: 'var(--pink-dark)', end: true },
-  { to: '/cursos', label: 'Cursos', icon: CursosIcon, color: 'var(--lila)', shadow: 'var(--lila-dark)' },
-  { to: '/tareas', label: 'Tareas', icon: TareasIcon, color: 'var(--mint-dark)', shadow: '#5bbfb0' },
-  { to: '/calendario', label: 'Calendario', icon: CalendarioIcon, color: 'var(--pink-dark)', shadow: '#d9607a' },
+  { to: '/', label: 'Home', icon: HomeIcon, color: 'var(--theme-pink)', shadow: 'var(--theme-pink-border)', end: true },
+  { to: '/cursos', label: 'Cursos', icon: CursosIcon, color: 'var(--theme-mint)', shadow: 'var(--theme-mint-shadow)' },
+  { to: '/tareas', label: 'Tareas', icon: TareasIcon, color: 'var(--theme-pink)', shadow: 'var(--theme-pink-border)' },
+  { to: '/calendario', label: 'Calendario', icon: CalendarioIcon, color: 'var(--theme-lila)', shadow: 'var(--theme-lila-border)' },
 ]
 
 export default function Layout() {
@@ -123,7 +123,7 @@ export default function Layout() {
       <aside style={{
         width: '220px',
         flexShrink: 0,
-        background: 'white',
+        background: 'var(--pink-surface)',
         borderRight: '2px solid var(--pink-light)',
         display: 'flex',
         flexDirection: 'column',
@@ -154,7 +154,7 @@ export default function Layout() {
                 <rect x="4" y="4" width="4" height="26" rx="2" fill="white" opacity="0.5"/>
                 <rect x="10" y="10" width="12" height="2" rx="1" fill="#FFB5C8"/>
                 <rect x="10" y="15" width="12" height="2" rx="1" fill="#C9B8FF"/>
-                <rect x="10" y="20" width="8" height="2" rx="1" fill="#B8F0E6"/>
+                <rect x="10" y="20" width="8" height="2" rx="1" fill="var(--mint-soft)"/>
               </svg>
             </div>
             <h1 style={{
@@ -181,7 +181,7 @@ export default function Layout() {
             marginBottom: '8px',
             boxShadow: '0 2px 0px var(--lila-dark)'
           }}>
-            <span style={{ color: 'white', fontWeight: 800, fontSize: '1rem', fontFamily: "'Nunito', sans-serif" }}>
+            <span style={{ color: 'var(--text-strong)', fontWeight: 800, fontSize: '1rem', fontFamily: "'Nunito', sans-serif" }}>
               {user?.nombre?.charAt(0).toUpperCase()}
             </span>
           </div>
@@ -211,10 +211,10 @@ export default function Layout() {
                 fontSize: '0.9rem',
                 fontWeight: isActive ? 800 : 600,
                 background: isActive ? color : 'transparent',
-                color: isActive ? 'white' : 'var(--text-light)',
+                color: isActive ? 'var(--text-strong)' : 'var(--text-light)',
                 boxShadow: isActive ? `0 3px 0px ${shadow}` : 'none',
                 transition: 'all 0.15s',
-                border: isActive ? 'none' : '2px solid transparent'
+                border: isActive ? `2px solid ${shadow}` : '2px solid transparent'
               })}
             >
               {({ isActive }) => (
@@ -262,7 +262,7 @@ export default function Layout() {
           position: 'fixed', right: 24, bottom: 24, zIndex: 2000,
           background: notification.type === 'error' ? '#FFE8E8' : 'white',
           border: `2px solid ${notification.type === 'error' ? '#FFB5B5' : 'var(--mint-light)'}`,
-          boxShadow: `4px 4px 0px ${notification.type === 'error' ? '#FFB5B5' : '#B8F0E6'}`,
+          boxShadow: `4px 4px 0px ${notification.type === 'error' ? '#FFB5B5' : 'var(--mint-shadow)'}`,
           color: notification.type === 'error' ? '#CC4444' : 'var(--text)',
           borderRadius: '14px', padding: '12px 16px',
           fontFamily: "'Nunito', sans-serif", fontWeight: 800,

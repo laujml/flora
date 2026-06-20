@@ -20,10 +20,10 @@ function Sparkle({ size = 16, color = '#C9B8FF', style = {} }) {
 
 /* ── Badge tipo evento ── */
 const TIPO_MAP = {
-  EXAMEN: { label: 'Examen', bg: '#FFE8F1', color: '#FF85A6', dot: '#FF85A6' },
-  ENTREGA: { label: 'Entrega', bg: '#E4DCFF', color: '#A090E0', dot: '#A090E0' },
-  CLASE: { label: 'Clase', bg: '#DFFAF5', color: '#5bbfb0', dot: '#5bbfb0' },
-  OTRO: { label: 'Otro', bg: '#FFF5F9', color: '#9B8AAD', dot: '#C9B8FF' }
+  EXAMEN: { label: 'Examen', bg: '#FFE8F1', color: 'var(--pink-ink)', dot: 'var(--pink-ink)' },
+  ENTREGA: { label: 'Entrega', bg: '#E4DCFF', color: 'var(--lila-ink)', dot: 'var(--lila-ink)' },
+  CLASE: { label: 'Clase', bg: '#DFFAF5', color: 'var(--mint-ink)', dot: 'var(--mint-ink)' },
+  OTRO: { label: 'Otro', bg: '#FFF5F9', color: 'var(--text-light)', dot: 'var(--lila-ink)' }
 }
 
 function EventTypeBadge({ tipo }) {
@@ -208,7 +208,7 @@ export default function Calendario() {
 
   if (loadError) return (
     <div style={{
-      background: 'white', borderRadius: '20px', padding: '24px',
+      background: 'var(--lila-surface)', borderRadius: '20px', padding: '24px',
       border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
       color: 'var(--pink-dark)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
     }}>
@@ -224,7 +224,7 @@ export default function Calendario() {
 
         {/* Header mes */}
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '20px 24px',
+          background: 'var(--lila-surface)', borderRadius: '20px', padding: '20px 24px',
           border: '2px solid var(--lila-light)', boxShadow: '4px 4px 0px var(--lila-light)',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           position: 'relative', overflow: 'hidden'
@@ -256,7 +256,7 @@ export default function Calendario() {
 
         {/* Grid calendario */}
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '20px',
+          background: 'var(--lila-surface)', borderRadius: '20px', padding: '20px',
           border: '2px solid var(--lila-light)', boxShadow: '4px 4px 0px var(--lila-light)'
         }}>
           {/* Días de la semana */}
@@ -305,7 +305,7 @@ export default function Calendario() {
       >
         <span style={{
           fontFamily: "'Nunito', sans-serif", fontSize: '0.85rem', fontWeight: 800,
-          color: esSel ? 'white' : esHoy ? 'var(--lila-dark)' : 'var(--text)',
+          color: esSel ? 'white' : esHoy ? 'var(--lila-ink)' : 'var(--text)',
           display: 'block', marginBottom: '4px', paddingLeft: '4px'
         }}>{dia}</span>
 
@@ -378,7 +378,7 @@ export default function Calendario() {
         {/* Eventos del día seleccionado */}
         {diaSeleccionado && (
           <div style={{
-            background: 'white', borderRadius: '20px', padding: '20px',
+            background: 'var(--lila-surface)', borderRadius: '20px', padding: '20px',
             border: '2px solid var(--lila-light)', boxShadow: '4px 4px 0px var(--lila-light)'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
@@ -389,7 +389,7 @@ export default function Calendario() {
               <button onClick={() => openCreate(diaSeleccionado)} style={{
                 background: 'var(--lila)', border: '2px solid var(--lila-dark)', borderRadius: '10px',
                 padding: '5px 12px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
-                fontWeight: 700, fontSize: '0.78rem', color: 'white', boxShadow: '0 2px 0px var(--lila-dark)'
+                fontWeight: 700, fontSize: '0.78rem', color: 'var(--text-strong)', boxShadow: '0 2px 0px var(--lila-dark)'
               }}>+ Agregar</button>
             </div>
             {diasSeleccionados.length === 0 ? (
@@ -438,7 +438,7 @@ export default function Calendario() {
       {/* COLUMNA DERECHA */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '20px',
+          background: 'var(--lila-surface)', borderRadius: '20px', padding: '20px',
           border: '2px solid var(--lila-light)', boxShadow: '4px 4px 0px var(--lila-light)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
@@ -452,7 +452,7 @@ export default function Calendario() {
             <button onClick={() => openCreate()} style={{
               background: 'var(--lila)', border: '2px solid var(--lila-dark)', borderRadius: '12px',
               padding: '6px 12px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
-              fontWeight: 700, fontSize: '0.78rem', color: 'white', boxShadow: '0 2px 0px var(--lila-dark)'
+              fontWeight: 700, fontSize: '0.78rem', color: 'var(--text-strong)', boxShadow: '0 2px 0px var(--lila-dark)'
             }}>+ Nuevo</button>
           </div>
 
@@ -489,10 +489,10 @@ export default function Calendario() {
                       background: 'var(--lila)', borderRadius: '10px', padding: '4px',
                       boxShadow: '0 2px 0px var(--lila-dark)'
                     }}>
-                      <p style={{ color: 'white', fontSize: '0.6rem', fontWeight: 700, fontFamily: "'Nunito', sans-serif" }}>
+                      <p style={{ color: 'var(--text-strong)', fontSize: '0.6rem', fontWeight: 700, fontFamily: "'Nunito', sans-serif" }}>
                         {fecha.toLocaleDateString('es', { month: 'short', timeZone: 'UTC' }).toUpperCase()}
                       </p>
-                      <p style={{ color: 'white', fontSize: '1rem', fontWeight: 800, fontFamily: "'Fredoka One', cursive", lineHeight: 1 }}>
+                      <p style={{ color: 'var(--text-strong)', fontSize: '1rem', fontWeight: 800, fontFamily: "'Fredoka One', cursive", lineHeight: 1 }}>
                         {fecha.getUTCDate()}
                       </p>
                     </div>
@@ -522,7 +522,7 @@ export default function Calendario() {
 
         {/* Leyenda */}
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '16px 20px',
+          background: 'var(--lila-surface)', borderRadius: '20px', padding: '16px 20px',
           border: '2px solid var(--cream-dark)'
         }}>
           <p style={{ fontFamily: "'Fredoka One', cursive", fontSize: '0.9rem', color: 'var(--text)', marginBottom: '10px' }}>Tipos de evento</p>
@@ -594,7 +594,7 @@ export default function Calendario() {
           <button onClick={guardar} disabled={saving} style={{
             width: '100%', padding: '12px', background: 'var(--lila)',
             border: '2px solid var(--lila-dark)', borderRadius: '14px',
-            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'white',
+            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'var(--text-strong)',
             cursor: 'pointer', boxShadow: '0 3px 0px var(--lila-dark)', opacity: saving ? 0.7 : 1
           }}>{saving ? 'Guardando...' : 'Crear evento'}</button>
         </Modal>

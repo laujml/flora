@@ -371,7 +371,7 @@ export default function Login() {
                 borderRadius: '12px',
                 border: '2px solid var(--pink-dark)',
                 background: loading ? 'var(--pink-light)' : 'var(--pink)',
-                color: 'white',
+                color: 'var(--text-strong)',
                 fontSize: '1rem',
                 fontWeight: '800',
                 fontFamily: "'Nunito', sans-serif",

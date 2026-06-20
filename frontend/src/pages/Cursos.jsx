@@ -27,7 +27,7 @@ function Modal({ title, onClose, children }) {
       <div style={{
         background: 'white', borderRadius: '24px', padding: '28px',
         width: '100%', maxWidth: '440px',
-        border: '2px solid var(--pink-light)', boxShadow: '6px 6px 0px var(--pink-light)',
+        border: '2px solid var(--mint-light)', boxShadow: '6px 6px 0px var(--mint-light)',
         position: 'relative'
       }}>
         <button onClick={onClose} style={{
@@ -65,7 +65,7 @@ function FilePreviewModal({ archivo, onClose }) {
       <div style={{
         background: 'white', borderRadius: '20px', padding: '18px',
         width: 'min(980px, 96vw)', height: 'min(760px, 92vh)',
-        border: '2px solid var(--mint-light)', boxShadow: '6px 6px 0px #B8F0E6',
+        border: '2px solid var(--mint-light)', boxShadow: '6px 6px 0px var(--mint-shadow)',
         display: 'flex', flexDirection: 'column', gap: '12px'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
@@ -160,7 +160,7 @@ function Input({ label, value, onChange, placeholder, type = 'text', hint }) {
   )
 }
 
-function SectionTitle({ children, color = 'var(--pink)' }) {
+function SectionTitle({ children, color = 'var(--mint-dark)' }) {
   return (
     <h3 style={{
       fontFamily: "'Fredoka One', cursive", fontSize: '1rem',
@@ -177,16 +177,17 @@ function FilterPill({ active, onClick, children }) {
     <button onClick={onClick} style={{
       padding: '4px 12px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 700,
       fontFamily: "'Nunito', sans-serif", cursor: 'pointer',
-      background: active ? 'var(--mint-dark)' : 'white',
-      color: active ? 'white' : 'var(--text-light)',
-      border: active ? '2px solid #5bbfb0' : '2px solid var(--cream-dark)',
-      boxShadow: active ? '0 2px 0px #5bbfb0' : 'none'
+      background: active ? 'var(--theme-mint)' : 'white',
+      color: active ? 'var(--text-strong)' : 'var(--text-light)',
+      border: active ? '2px solid var(--theme-mint-border)' : '2px solid var(--mint-light)',
+      boxShadow: active ? '0 2px 0px var(--theme-mint-shadow)' : 'none'
     }}>{children}</button>
   )
 }
 
-const CARD_COLORS = ['var(--pink)', 'var(--lila)', 'var(--mint-dark)', 'var(--pink-dark)']
-const CARD_SHADOWS = ['var(--pink-dark)', 'var(--lila-dark)', '#5bbfb0', '#cc607a']
+const CARD_COLORS = ['var(--mint-card)', 'var(--mint-soft)', 'var(--mint-light)', 'var(--mint-card)']
+const CARD_SHADOWS = ['var(--mint-shadow)', 'var(--mint-shadow)', 'var(--mint-shadow)', 'var(--mint-shadow)']
+const CARD_INKS = ['var(--mint-ink)', 'var(--mint-ink)', 'var(--mint-ink)', 'var(--mint-ink)']
 
 const tipoIcono = (tipo) => {
   if (!tipo) return 'FILE'
@@ -199,9 +200,9 @@ const tipoIcono = (tipo) => {
 }
 const tipoColor = (tipo) => {
   if (!tipo) return { bg: '#F0F0F0', color: '#888' }
-  if (tipo.includes('pdf')) return { bg: '#FFE8F1', color: '#FF85A6' }
-  if (tipo.includes('image')) return { bg: '#E4DCFF', color: '#A090E0' }
-  if (tipo.includes('word') || tipo.includes('document')) return { bg: '#DFFAF5', color: '#5bbfb0' }
+  if (tipo.includes('pdf')) return { bg: '#FFE8F1', color: 'var(--pink-ink)' }
+  if (tipo.includes('image')) return { bg: '#E4DCFF', color: 'var(--lila-ink)' }
+  if (tipo.includes('word') || tipo.includes('document')) return { bg: 'var(--mint-light)', color: 'var(--mint-ink)' }
   if (tipo.includes('sheet') || tipo.includes('excel')) return { bg: '#E8FFE8', color: '#5ba05b' }
   if (tipo.includes('presentation') || tipo.includes('powerpoint')) return { bg: '#FFF3E0', color: '#E0943A' }
   return { bg: 'var(--cream)', color: 'var(--text-light)' }
@@ -269,9 +270,9 @@ function CursoDetail({ curso, onBack }) {
     : null
 
   const notaColor = (val) => {
-    if (val >= 8) return '#5bbfb0'
-    if (val >= 6) return '#A090E0'
-    return '#FF85A6'
+    if (val >= 8) return 'var(--mint-ink)'
+    if (val >= 6) return 'var(--lila-ink)'
+    return 'var(--pink-ink)'
   }
 
   const openCreateCalificacion = () => {
@@ -360,7 +361,7 @@ function CursoDetail({ curso, onBack }) {
 
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-      <Sparkle size={32} color="var(--lila)" style={{ margin: '0 auto' }}/>
+      <Sparkle size={32} color="var(--theme-mint)" style={{ margin: '0 auto' }}/>
     </div>
   )
 
@@ -368,12 +369,12 @@ function CursoDetail({ curso, onBack }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Header */}
       <div style={{
-        background: 'white', borderRadius: '20px', padding: '24px 28px',
-        border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
+        background: 'var(--mint-surface)', borderRadius: '20px', padding: '24px 28px',
+        border: '2px solid var(--mint-light)', boxShadow: '6px 6px 0px var(--mint-shadow), -2px -2px 0px rgba(255,255,255,0.5)',
         position: 'relative', overflow: 'hidden'
       }}>
-        <Star size={18} color="#FFD6E3" style={{ position: 'absolute', top: 16, right: 24 }}/>
-        <Sparkle size={12} color="#E4DCFF" style={{ position: 'absolute', bottom: 14, right: 44 }}/>
+        <Star size={18} color="var(--mint-light)" style={{ position: 'absolute', top: 16, right: 24 }}/>
+        <Sparkle size={12} color="var(--mint)" style={{ position: 'absolute', bottom: 14, right: 44 }}/>
         <button onClick={onBack} style={{
           background: 'var(--cream)', border: '2px solid var(--cream-dark)', borderRadius: '12px',
           padding: '6px 14px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
@@ -381,11 +382,11 @@ function CursoDetail({ curso, onBack }) {
         }}>← Volver</button>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <div style={{
-            width: 52, height: 52, borderRadius: '16px', background: 'var(--pink)',
+            width: 52, height: 52, borderRadius: '16px', background: 'var(--theme-mint)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-            boxShadow: '0 3px 0px var(--pink-dark)'
+            boxShadow: '0 3px 0px var(--theme-mint-shadow)'
           }}>
-            <span style={{ color: 'white', fontFamily: "'Fredoka One', cursive", fontSize: '1.5rem' }}>
+            <span style={{ color: 'var(--text-strong)', fontFamily: "'Fredoka One', cursive", fontSize: '1.5rem' }}>
               {data?.nombre.charAt(0)}
             </span>
           </div>
@@ -400,15 +401,15 @@ function CursoDetail({ curso, onBack }) {
 
       {/* ── CALIFICACIONES ── */}
       <div style={{
-        background: 'white', borderRadius: '20px', padding: '20px',
-        border: '2px solid var(--lila-light)', boxShadow: '4px 4px 0px var(--lila-light)'
+        background: 'var(--mint-surface)', borderRadius: '20px', padding: '20px',
+        border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px var(--mint-light)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-          <SectionTitle color="var(--lila)">Calificaciones</SectionTitle>
+          <SectionTitle color="var(--mint-dark)">Calificaciones</SectionTitle>
           <button onClick={openCreateCalificacion} style={{
-            background: 'var(--lila)', border: '2px solid var(--lila-dark)', borderRadius: '12px',
+            background: 'var(--theme-mint)', border: '2px solid var(--theme-mint-border)', borderRadius: '12px',
             padding: '5px 14px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
-            fontWeight: 700, fontSize: '0.78rem', color: 'white', boxShadow: '0 2px 0px var(--lila-dark)'
+            fontWeight: 700, fontSize: '0.78rem', color: 'var(--text-strong)', boxShadow: '0 2px 0px var(--theme-mint-shadow)'
           }}>+ Agregar</button>
         </div>
 
@@ -436,35 +437,35 @@ function CursoDetail({ curso, onBack }) {
                     const aporte = normalizada * cal.porcentaje / 100
                     return (
                       <tr key={cal.id}>
-                        <td style={{ padding: '10px', background: 'var(--cream)', borderRadius: '12px 0 0 12px', border: '2px solid var(--lila-light)', borderRight: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', borderRadius: '12px 0 0 12px', border: '2px solid var(--mint-light)', borderRight: 'none' }}>
                           <span style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--text)' }}>{cal.nombre}</span>
                         </td>
-                        <td style={{ padding: '10px', background: 'var(--cream)', border: '2px solid var(--lila-light)', borderLeft: 'none', borderRight: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', border: '2px solid var(--mint-light)', borderLeft: 'none', borderRight: 'none' }}>
                           <span style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: notaColor(normalizada) }}>
                             {cal.nota}/{cal.notaMaxima}
                           </span>
                         </td>
-                        <td style={{ padding: '10px', background: 'var(--cream)', border: '2px solid var(--lila-light)', borderLeft: 'none', borderRight: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', border: '2px solid var(--mint-light)', borderLeft: 'none', borderRight: 'none' }}>
                           <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.82rem', color: 'var(--text-light)' }}>
                             {normalizada.toFixed(1)}
                           </span>
                         </td>
-                        <td style={{ padding: '10px', background: 'var(--cream)', border: '2px solid var(--lila-light)', borderLeft: 'none', borderRight: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', border: '2px solid var(--mint-light)', borderLeft: 'none', borderRight: 'none' }}>
                           <span style={{
                             padding: '2px 8px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 700,
-                            background: 'var(--lila-light)', color: 'var(--lila-dark)', fontFamily: "'Nunito', sans-serif"
+                            background: 'var(--mint-light)', color: 'var(--theme-mint-ink)', fontFamily: "'Nunito', sans-serif"
                           }}>{cal.porcentaje}%</span>
                         </td>
-                        <td style={{ padding: '10px', background: 'var(--cream)', border: '2px solid var(--lila-light)', borderLeft: 'none', borderRight: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', border: '2px solid var(--mint-light)', borderLeft: 'none', borderRight: 'none' }}>
                           <span style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: notaColor(normalizada) }}>
                             +{aporte.toFixed(2)}
                           </span>
                         </td>
-                        <td style={{ padding: '10px', background: 'var(--cream)', borderRadius: '0 12px 12px 0', border: '2px solid var(--lila-light)', borderLeft: 'none' }}>
+                        <td style={{ padding: '10px', background: 'var(--mint-inner)', borderRadius: '0 12px 12px 0', border: '2px solid var(--mint-light)', borderLeft: 'none' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                             <button onClick={() => openEditCalificacion(cal)} style={{
-                              background: 'white', border: '2px solid var(--lila-light)', borderRadius: '10px',
-                              cursor: 'pointer', color: 'var(--lila-dark)', fontSize: '0.72rem',
+                              background: 'var(--mint-surface)', border: '2px solid var(--mint-light)', borderRadius: '10px',
+                              cursor: 'pointer', color: 'var(--theme-mint-ink)', fontSize: '0.72rem',
                               fontFamily: "'Nunito', sans-serif", fontWeight: 800, padding: '4px 8px'
                             }}>Editar</button>
                             <button onClick={() => eliminarCalificacion(cal.id)} style={{
@@ -483,11 +484,11 @@ function CursoDetail({ curso, onBack }) {
             {/* Resumen */}
             <div style={{
               marginTop: '16px', padding: '16px', borderRadius: '16px',
-              background: 'var(--lila-light)', border: '2px solid var(--lila)',
+               background: 'var(--mint-light)', border: '2px solid var(--theme-mint)',
               display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px'
             }}>
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.72rem', color: 'var(--lila-dark)', fontWeight: 700, marginBottom: 2 }}>
+                 <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.72rem', color: 'var(--theme-mint-ink)', fontWeight: 700, marginBottom: 2 }}>
                   Acumulado actual
                 </p>
                 <p style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1.6rem', color: notaColor(acumulado) }}>
@@ -499,7 +500,7 @@ function CursoDetail({ curso, onBack }) {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.72rem', color: 'var(--lila-dark)', fontWeight: 700, marginBottom: 2 }}>
+                 <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.72rem', color: 'var(--theme-mint-ink)', fontWeight: 700, marginBottom: 2 }}>
                   Para aprobar necesito
                 </p>
                 {porcentajeFaltante > 0 ? (
@@ -513,7 +514,7 @@ function CursoDetail({ curso, onBack }) {
                     </p>
                   </>
                 ) : (
-                  <p style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: '#5bbfb0', marginTop: 6 }}>Curso completo</p>
+                  <p style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'var(--mint-ink)', marginTop: 6 }}>Curso completo</p>
                 )}
               </div>
 
@@ -525,15 +526,15 @@ function CursoDetail({ curso, onBack }) {
 
       {/* ── ARCHIVOS ── */}
       <div style={{
-        background: 'white', borderRadius: '20px', padding: '20px',
-        border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px #B8F0E6'
+        background: 'var(--mint-surface)', borderRadius: '20px', padding: '20px',
+        border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px var(--mint-shadow)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
           <SectionTitle color="var(--mint-dark)">Archivos</SectionTitle>
           <button onClick={() => fileRef.current.click()} style={{
-            background: 'var(--mint-dark)', border: '2px solid #5bbfb0', borderRadius: '12px',
+            background: 'var(--theme-mint)', border: '2px solid var(--theme-mint-border)', borderRadius: '12px',
             padding: '5px 14px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
-            fontWeight: 700, fontSize: '0.78rem', color: 'white', boxShadow: '0 2px 0px #5bbfb0'
+            fontWeight: 700, fontSize: '0.78rem', color: 'var(--text-strong)', boxShadow: '0 2px 0px var(--theme-mint-shadow)'
           }} disabled={uploading}>{uploading ? 'Subiendo...' : '+ Subir'}</button>
           <input ref={fileRef} type="file" style={{ display: 'none' }} onChange={subirArchivo}/>
         </div>
@@ -541,8 +542,8 @@ function CursoDetail({ curso, onBack }) {
         {uploadError && (
           <p style={{
             marginBottom: '12px', padding: '8px 12px', borderRadius: '12px',
-            background: '#FFF0F4', border: '2px solid var(--pink-light)',
-            color: 'var(--pink-dark)', fontFamily: "'Nunito', sans-serif",
+            background: 'var(--mint-inner)', border: '2px solid var(--mint-light)',
+            color: 'var(--theme-mint-ink)', fontFamily: "'Nunito', sans-serif",
             fontSize: '0.8rem', fontWeight: 700
           }}>
             {uploadError}
@@ -664,10 +665,10 @@ function CursoDetail({ curso, onBack }) {
             hint={`Porcentaje ya usado: ${porcentajeUsadoSinEdicion.toFixed(0)}% · Disponible: ${Math.max(0, 100 - porcentajeUsadoSinEdicion).toFixed(0)}%`}
           />
           <button onClick={guardarCalificacion} disabled={savingCal} style={{
-            width: '100%', padding: '12px', background: 'var(--lila)',
-            border: '2px solid var(--lila-dark)', borderRadius: '14px',
-            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'white',
-            cursor: 'pointer', boxShadow: '0 3px 0px var(--lila-dark)', opacity: savingCal ? 0.7 : 1
+            width: '100%', padding: '12px', background: 'var(--theme-mint)',
+            border: '2px solid var(--theme-mint-border)', borderRadius: '14px',
+            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'var(--text-strong)',
+            cursor: 'pointer', boxShadow: '0 3px 0px var(--theme-mint-shadow)', opacity: savingCal ? 0.7 : 1
           }}>{savingCal ? 'Guardando...' : calEditando ? 'Guardar cambios' : 'Guardar calificación'}</button>
         </Modal>
       )}
@@ -680,9 +681,9 @@ function CursoDetail({ curso, onBack }) {
 
   if (loadError) return (
     <div style={{
-      background: 'white', borderRadius: '20px', padding: '24px',
-      border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
-      color: 'var(--pink-dark)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
+      background: 'var(--mint-surface)', borderRadius: '20px', padding: '24px',
+      border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px var(--mint-shadow)',
+      color: 'var(--mint-ink)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
     }}>
       {loadError}
     </div>
@@ -766,7 +767,7 @@ export default function Cursos() {
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
       <div style={{ textAlign: 'center' }}>
-        <Sparkle size={32} color="var(--lila)" style={{ margin: '0 auto 12px' }}/>
+        <Sparkle size={32} color="var(--theme-mint)" style={{ margin: '0 auto 12px' }}/>
         <p style={{ color: 'var(--text-light)', fontFamily: "'Nunito', sans-serif" }}>Cargando cursos...</p>
       </div>
     </div>
@@ -774,9 +775,9 @@ export default function Cursos() {
 
   if (loadError) return (
     <div style={{
-      background: 'white', borderRadius: '20px', padding: '24px',
-      border: '2px solid var(--pink-light)', boxShadow: '4px 4px 0px var(--pink-light)',
-      color: 'var(--pink-dark)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
+      background: 'var(--mint-surface)', borderRadius: '20px', padding: '24px',
+      border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px var(--mint-shadow)',
+      color: 'var(--mint-ink)', fontFamily: "'Nunito', sans-serif", fontWeight: 800
     }}>
       {loadError}
     </div>
@@ -785,13 +786,13 @@ export default function Cursos() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <div style={{
-        background: 'white', borderRadius: '20px', padding: '24px 28px',
-        border: '2px solid var(--mint-light)', boxShadow: '4px 4px 0px #B8F0E6',
+        background: 'var(--mint-surface)', borderRadius: '20px', padding: '24px 28px',
+        border: '2px solid var(--mint-light)', boxShadow: '6px 6px 0px var(--mint-shadow), -2px -2px 0px rgba(255,255,255,0.5)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         position: 'relative', overflow: 'hidden'
       }}>
-        <Star size={18} color="#B8F0E6" style={{ position: 'absolute', top: 14, right: 28 }}/>
-        <Sparkle size={12} color="#E4DCFF" style={{ position: 'absolute', bottom: 14, right: 52 }}/>
+        <Star size={18} color="var(--mint-light)" style={{ position: 'absolute', top: 14, right: 28 }}/>
+        <Sparkle size={12} color="var(--mint)" style={{ position: 'absolute', bottom: 14, right: 52 }}/>
         <div>
           <h1 style={{ fontFamily: "'Fredoka One', cursive", fontSize: '1.8rem', color: 'var(--text)' }}>Mis cursos</h1>
           <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: '0.85rem', color: 'var(--text-light)', fontWeight: 600 }}>
@@ -799,15 +800,15 @@ export default function Cursos() {
           </p>
         </div>
         <button onClick={openCreate} style={{
-          background: 'var(--mint-dark)', border: '2px solid #5bbfb0', borderRadius: '14px',
+          background: 'var(--theme-mint)', border: '2px solid var(--theme-mint-border)', borderRadius: '14px',
           padding: '10px 20px', cursor: 'pointer', fontFamily: "'Fredoka One', cursive",
-          fontSize: '1rem', color: 'white', boxShadow: '0 3px 0px #5bbfb0'
+          fontSize: '1rem', color: 'var(--text-strong)', boxShadow: '0 3px 0px var(--theme-mint-shadow)'
         }}>+ Nuevo curso</button>
       </div>
 
       {cursos.length === 0 ? (
         <div style={{
-          background: 'white', borderRadius: '20px', padding: '48px',
+          background: 'var(--mint-surface)', borderRadius: '20px', padding: '48px',
           border: '2px solid var(--cream-dark)', textAlign: 'center'
         }}>
           <Star size={36} color="var(--mint-light)" style={{ margin: '0 auto 12px' }}/>
@@ -818,18 +819,18 @@ export default function Cursos() {
             Agrega tu primer curso para empezar a organizar todo
           </p>
           <button onClick={openCreate} style={{
-            background: 'var(--mint-dark)', border: '2px solid #5bbfb0', borderRadius: '14px',
+            background: 'var(--theme-mint)', border: '2px solid var(--theme-mint-border)', borderRadius: '14px',
             padding: '10px 20px', cursor: 'pointer', fontFamily: "'Fredoka One', cursive",
-            fontSize: '1rem', color: 'white', boxShadow: '0 3px 0px #5bbfb0'
+            fontSize: '1rem', color: 'var(--text-strong)', boxShadow: '0 3px 0px var(--theme-mint-shadow)'
           }}>+ Agregar curso</button>
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 360px))', gap: '16px' }}>
           {cursos.map((curso, i) => (
             <div key={curso.id} onClick={() => setDetalle(curso)} style={{
-              background: 'white', borderRadius: '20px', padding: '20px',
-              border: `2px solid ${['var(--pink-light)', 'var(--lila-light)', 'var(--mint-light)', '#FFE8F1'][i % 4]}`,
-              boxShadow: `4px 4px 0px ${['var(--pink-light)', 'var(--lila-light)', '#B8F0E6', 'var(--pink-light)'][i % 4]}`,
+              background: 'var(--mint-card)', borderRadius: '20px', padding: '20px',
+              border: '2px solid var(--mint-light)',
+              boxShadow: '6px 6px 0px var(--mint-shadow), -2px -2px 0px rgba(255,255,255,0.5)',
               cursor: 'pointer', transition: 'transform 0.15s ease', position: 'relative', overflow: 'hidden'
             }}
             onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
@@ -842,7 +843,7 @@ export default function Cursos() {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   boxShadow: `0 3px 0px ${CARD_SHADOWS[i % 4]}`
                 }}>
-                  <span style={{ color: 'white', fontFamily: "'Fredoka One', cursive", fontSize: '1.2rem' }}>
+                  <span style={{ color: CARD_INKS[i % 4], fontFamily: "'Fredoka One', cursive", fontSize: '1.2rem' }}>
                     {curso.nombre.charAt(0)}
                   </span>
                 </div>
@@ -862,10 +863,10 @@ export default function Cursos() {
               )}
               <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
                 <button onClick={e => openEdit(curso, e)} style={{
-                  flex: 1, padding: '6px', background: 'var(--cream)',
-                  border: '2px solid var(--cream-dark)', borderRadius: '10px',
+                  flex: 1, padding: '6px', background: 'var(--mint-inner)',
+                  border: '2px solid var(--mint-light)', borderRadius: '10px',
                   cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
-                  fontWeight: 700, fontSize: '0.75rem', color: 'var(--text-light)'
+                  fontWeight: 700, fontSize: '0.75rem', color: 'var(--theme-mint-ink)'
                 }}>Editar</button>
                 <button onClick={e => { e.stopPropagation(); setConfirmDelete(curso) }} style={{
                   flex: 1, padding: '6px', background: '#FFF0F4',
@@ -885,10 +886,10 @@ export default function Cursos() {
           <Input label="Docente" value={form.docente} onChange={e => setForm(p => ({ ...p, docente: e.target.value }))} placeholder="Nombre del profesor"/>
           <Input label="Correo del docente" value={form.correo} onChange={e => setForm(p => ({ ...p, correo: e.target.value }))} placeholder="profesor@universidad.edu" type="email"/>
           <button onClick={guardar} disabled={saving} style={{
-            width: '100%', padding: '12px', background: 'var(--mint-dark)',
-            border: '2px solid #5bbfb0', borderRadius: '14px',
-            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'white',
-            cursor: 'pointer', boxShadow: '0 3px 0px #5bbfb0', opacity: saving ? 0.7 : 1
+            width: '100%', padding: '12px', background: 'var(--theme-mint)',
+            border: '2px solid var(--theme-mint-border)', borderRadius: '14px',
+            fontFamily: "'Fredoka One', cursive", fontSize: '1rem', color: 'var(--text-strong)',
+            cursor: 'pointer', boxShadow: '0 3px 0px var(--theme-mint-shadow)', opacity: saving ? 0.7 : 1
           }}>{saving ? 'Guardando...' : editando ? 'Guardar cambios' : 'Crear curso'}</button>
         </Modal>
       )}

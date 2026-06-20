@@ -296,7 +296,7 @@ export default function Register() {
                 width: '100%', padding: '13px', borderRadius: '12px',
                 border: '2px solid var(--lila-dark)',
                 background: loading ? 'var(--lila-light)' : 'var(--lila)',
-                color: 'white', fontSize: '1rem', fontWeight: '800',
+                color: 'var(--text-strong)', fontSize: '1rem', fontWeight: '800',
                 fontFamily: "'Nunito', sans-serif",
                 cursor: loading ? 'not-allowed' : 'pointer',
                 transition: 'transform 0.15s, box-shadow 0.15s',
