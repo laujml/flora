@@ -137,8 +137,8 @@ Flora
 ### 1. Clonar repositorio
 
 ```bash
-git clone https://github.com/laujml/studyflow.git
-cd studyflow
+git clone https://github.com/laujml/flora.git
+cd flora
 ```
 
 ### 2. Configurar Backend
